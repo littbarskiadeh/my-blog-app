@@ -1,0 +1,5 @@
+//  yarn add @babel/core @babel/node @babel/preset-env --save-dev
+
+{
+    "presets": ["@babel/preset-env"]
+}
