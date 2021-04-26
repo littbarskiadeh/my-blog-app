@@ -6,6 +6,7 @@ import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import Article from '../model/Article';
 import path from 'path';
+const cors = require('cors');
 
 const connectionString = "mongodb+srv://admin:admin@cluster0.8swg5.mongodb.net/myblog?retryWrites=true&w=majority";
 
@@ -16,6 +17,7 @@ mongoose
 
 const app = express();
 
+app.use(cors())
 // path to serve static content : added after deployment of React App to production build
 app.use(express.static(path.join(__dirname, '/build')))
 
