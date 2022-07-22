@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ArticlesList from '../components/ArticlesList';
 import CommentsList from '../components/CommentsList';
 import UpvoteSection from '../components/UpvoteSection';
+import DownvoteSection from '../components/DownvoteSection';
 import AddCommentForm from '../components/AddCommentForm';
 import NotFoundPage from './NotFoundPage';
 import articleContent from './article-content';
@@ -31,12 +32,14 @@ const ArticlePage = ({ match }) => {
     return (
         <>
             <h1>{article.title}</h1>
-
-            <UpvoteSection articleName={name} upvotes={articleInfo.upvotes} downvotes={articleInfo.downvotes} setArticleInfo={setArticleInfo} />
-
+            
             {article.content.map((paragraph, key) => (
                 <p key={key}>{paragraph}</p>
             ))}
+            <div className="article-votes" style={{ display: 'flex', flexDirection: 'column' }}>
+                <UpvoteSection articleName={name} upvotes={articleInfo.upvotes} downvotes={articleInfo.downvotes} setArticleInfo={setArticleInfo} />
+                <DownvoteSection articleName={name} upvotes={articleInfo.upvotes} downvotes={articleInfo.downvotes} setArticleInfo={setArticleInfo} />
+            </div>
 
             <AddCommentForm articleName={name} setArticleInfo={setArticleInfo} />
 

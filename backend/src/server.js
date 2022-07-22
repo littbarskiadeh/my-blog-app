@@ -78,7 +78,7 @@ app.post('/api/articles/:name/upvote', async (req, res) => {
 
 })
 
-// Donvote an article: http://localhost:8080/api/articles/my-thoughts-on-resumes/downvote
+// Downvote an article: http://localhost:8080/api/articles/my-thoughts-on-resumes/downvote
 app.post('/api/articles/:name/downvote', async (req, res) => {
     try {
         const articleName = req.params.name;
